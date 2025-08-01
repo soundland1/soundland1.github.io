@@ -1,0 +1,85 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SoundLand</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      background: #f5f5f5;
+    }
+    header {
+      background: linear-gradient(90deg, #5a189a, #9d4edd);
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    #search {
+      margin: 1rem auto;
+      display: block;
+      padding: 0.5rem;
+      width: 80%;
+      max-width: 400px;
+    }
+    .track {
+      background: white;
+      margin: 1rem auto;
+      padding: 1rem;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 600px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: background 0.3s ease;
+    }
+    .track:hover {
+      background: #ece4ff;
+    }
+    audio {
+      width: 100%;
+      margin-top: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1> SoundLand</h1>
+    <p>Enjoy 5000+ No Copyright Music Tracks</p>
+  </header>
+  <input type="text" id="search" placeholder="Search for a track..." />
+  <div id="tracks">
+    <!-- Tracks inserted here --><div class="track" data-title="Chill Track 1">
+  <strong>Chill Track 1</strong>
+  <audio controls src="https://cdn.example.com/audio/track1.mp3"></audio>
+</div>
+<div class="track" data-title="Lo-fi Track 2">
+  <strong>Lo-fi Track 2</strong>
+  <audio controls src="https://cdn.example.com/audio/track2.mp3"></audio>
+</div>
+<div class="track" data-title="Electronic Track 3">
+  <strong>Electronic Track 3</strong>
+  <audio controls src="https://cdn.example.com/audio/track3.mp3"></audio>
+</div>
+<div class="track" data-title="Classical Track 4">
+  <strong>Classical Track 4</strong>
+  <audio controls src="https://cdn.example.com/audio/track4.mp3"></audio>
+</div>
+<div class="track" data-title="Hip Hop Track 5">
+  <strong>Hip Hop Track 5</strong>
+  <audio controls src="https://cdn.example.com/audio/track5.mp3"></audio>
+</div>
+<!-- and so on until 5000 tracks -->
+  </div>
+  <script>
+    const search = document.getElementById("search");
+    const tracks = document.querySelectorAll(".track");
+    search.addEventListener("input", function () {
+      const val = this.value.toLowerCase();
+      tracks.forEach(t => {
+        const title = t.dataset.title.toLowerCase();
+        t.style.display = title.includes(val) ? "block" : "none";
+      });
+    });
+  </script>
+</body>
+</html>
